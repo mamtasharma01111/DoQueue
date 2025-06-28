@@ -16,7 +16,7 @@ function Login() {
   const [password, setPassword] = useState('')
 
   const handleLogin = () => {
-   3
+    // Simulated authentication (you can replace this with actual logic)
     if (username && password) {
       console.log('Logging in with:', { username, password })
       alert('Login successful!')
@@ -26,7 +26,7 @@ function Login() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen p-4">
+    <div className="flex items-center justify-center min-h-screen  p-4">
       <Card className="w-full max-w-sm shadow-lg border-0 bg-white rounded-xl">
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-bold text-blue-700">Sign In</CardTitle>
