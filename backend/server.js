@@ -5,7 +5,7 @@ const connectDB = require('./config/dbconfig');
 require('dotenv').config();
 const cookieParser = require("cookie-parser");
 const errorHandler = require('./middleware/errorHandler');
-const Auth = require('./routes/user/user.routes');
+const Auth = require('./routes/user/user.routes.js');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 });
 
 // Api of login
-app.use('/auth',Auth);
+app.use('/api/auth',Auth);
 
 app.use(errorHandler);
 // Start server

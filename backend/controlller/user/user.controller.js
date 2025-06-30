@@ -1,4 +1,4 @@
-const { User } = require("../../models/user/user.model");
+const { User } = require("../../models/user/user.model.js");
 
 // Function to generate a token for the user
 const generateToken = async (user) => {
@@ -36,27 +36,34 @@ const createUser = async (req, res) => {
 };
 
 // Function to handle user login
-const login = async (req, res) => {
-  const { userName, password } = req.body;
+const login = async (req, res, next) => {
+  try {
+    const { userName, password } = req.body;
+    console.log("Login attempt:", { userName });
 
-  const user = await User.findOne({ userName });
-  if (!user) return res.status(400).json({ message: "User not found" });
+    const user = await User.findOne({ userName });
+    if (!user) return res.status(400).json({ message: "User not found" });
 
-  const isMatch = await user.comparePassword(password);
-  if (!isMatch) return res.status(401).json({ message: "Invalid credentials" });
+    const isMatch = await user.comparePassword(password);
+    if (!isMatch) return res.status(401).json({ message: "Invalid credentials" });
 
-  const token = user.generateAccessToken();
+    const token = user.generateAccessToken();
 
-  res.status(200).json({
-    message: "Login successful",
-    token,
-    user: {
-      id: user._id,
-      userName: user.userName,
-      role: user.role,
-    },
-  });
+    res.status(200).json({
+      message: "Login successful",
+      token,
+      data: {
+        id: user._id,
+        userName: user.userName,
+        role: user.role,
+      },
+    });
+  } catch (err) {
+    console.error("Login error:", err);
+    next(err); // Pass to errorHandler
+  }
 };
+
 
 module.exports = {
   createUser,

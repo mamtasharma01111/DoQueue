@@ -1,14 +1,11 @@
+// utils/apiErr.js
 class ApiErr extends Error {
-  constructor(statusCode, message = "Invalid", errors = [], stack = "") {
+  constructor(statusCode, message, errors = []) {
     super(message);
     this.statusCode = statusCode;
     this.errors = errors;
-    this.message = message;
-    if (stack) {
-      this.stack = stack;
-    }  else {
-      Error.captureStackTrace(this, this.constructor);
-    }
+    this.name = 'ApiError';
   }
 }
-module.exports = ApiErr;
+
+module.exports = { ApiErr };
