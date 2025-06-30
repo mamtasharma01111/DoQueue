@@ -6,14 +6,18 @@
     "moduleResolution": "Node",
     "strict": true,
     "jsx": "react-jsx",
+    "allowJs": true,
+    "checkJs": false,
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
     },
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "rootDir": "./src"
   },
-  "include": ["src"],
+  "include": ["src", "vite-env.d.ts"],
   "exclude": ["node_modules", "dist"]
 }
