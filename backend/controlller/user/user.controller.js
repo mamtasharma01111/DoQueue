@@ -1,4 +1,4 @@
-const { User } = require("../../models/user/user.model.js");
+const User  = require("../../models/user/user.model.js");
 
 // Function to generate a token for the user
 const generateToken = async (user) => {

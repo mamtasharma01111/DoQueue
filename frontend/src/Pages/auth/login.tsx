@@ -46,7 +46,7 @@ console.log(res)
     const role = res.data?.data?.role;
 
     if (role === 'admin') {
-      navigate('/V2/page4');
+      navigate('/adminDashboard');
     } else if (role === 'emp') {
       navigate('/V2/Details');
     } else {
@@ -109,7 +109,7 @@ console.log(res)
         {/* Change button type to submit */}
         <Button
           type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold mt-6"
         >
           Sign In
         </Button>
