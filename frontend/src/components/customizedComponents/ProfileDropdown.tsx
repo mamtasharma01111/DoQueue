@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext'; 
 
 const ProfileDropdown = () => {
-  const context = useContext(AuthContext); // ✅ use the context
+  const context = useContext(AuthContext);
 
-  if (!context) return null; // ✅ handle null case
+  if (!context) return null;
 
   const { user, logout } = context;
 
