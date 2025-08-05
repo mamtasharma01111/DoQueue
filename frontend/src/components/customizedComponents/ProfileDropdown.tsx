@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { AuthContext } from '../../context/AuthContext'; // ✅ your shared context
+import { AuthContext } from '../../context/AuthContext'; 
 
 const ProfileDropdown = () => {
   const context = useContext(AuthContext); // ✅ use the context
