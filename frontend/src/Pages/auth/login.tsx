@@ -30,8 +30,17 @@ function Login() {
       toast.error("Please enter both username and password.");
       return;
     }
-    console.log("username:", userName);
-    console.log("password:", password);
+    if(!userName) {
+      toast.error("Username cannot be empty.");
+      return;
+    }
+    if(!password) {
+      toast.error("Password cannot be empty.");
+      return;
+    }
+    
+    console.log("UserName:", userName);
+    console.log("Password:", password);
 
     try {
       const res = await axios.post(
